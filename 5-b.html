@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Factorial and Fibonacci
+</title>
+<style>
+h2
+{
+display:inline;
+}
+</style>
+</head>
+<body>
+<h1>Finding factorial and Fibonacci</h1>
+<h2>Enter the number to find the factorial : </h2>
+<input id="factorial" type="number" placeholder="Enter a number">
+<button onclick="factorial()">Find !</button>
+<h1>The Factorial of the given number is : <span id="res"></span></h1>
+<h2>Enter the number to find the fibonacci Series : </h2>
+<input id="fibonacci" type="number" placeholder="Enter a number">
+<button onclick="answer()">Find Fibonacci</button>
+<h1>The Fibonacci number is : <span id="fres"></span></h1>
+</body>
+<script>
+const factorial = () => {
+let fact=document.getElementById("factorial");
+let n = fact.value;
+let res = document.getElementById("res"); 
+let result=1;
+if(n==1 || n==0)
+{
+result=1;
+}
+else {
+for(let i=1;i<=n;i++){
+result=result*i;
+}
+}
+res.innerText=result;
+}
+// Factorial ends here
+
+// Fibonacci Series
+let fibonacci = (m) => {
+ let fres =document.getElementById("fres");
+ 
+ let a = 0;
+ let b = 1;
+
+ let c = 0;
+ 
+ for(let i = 2; i <= m; i++){
+    c = a + b; 
+    
+    a = b; 
+
+    b = c; 
+ }
+ //if the num is 0 then return a else return b;
+ if(m==0)
+ {
+ fres.innerText=a;
+ }
+ else
+ {
+  fres.innerText=b;
+ }
+}
+const answer = () => {
+const m = document.getElementById("fibonacci").value;
+fibonacci(m);
+}
+</script>
+</html>
+
